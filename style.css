@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+    background-color: #f1faee;
+}
+
+h1 {
+    text-align: center;
+    color: #1d3557;
+    margin: 1em;
+}
+
+.scoreboard {
+    display: inline-block;
+    padding: 2em;
+    margin: 2em;
+    border: solid 2px #e63946;
+    background-color: #457b9d;
+    color: #f1faee;
+}
+
+.main {
+    display: inline-block;
+    margin-top: 1em;
+    border: solid 1px #457b9d;
+    padding: 5%;
+}
+
+.display {
+    margin-top: 2em;
+    background-color: #a8dadc;
+}
+
+@media (max-width: 660px) {
+
+    .main {
+        width: 60%;
+        height: 50%;
+    }
+
+    img {
+        width: 50%;
+    }
+}

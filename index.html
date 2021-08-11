@@ -5,7 +5,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Rock Paper Scissors</title>
-        <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
     </head>
-    <body></body>
+    <body>
+        <h1>Rock - Paper - Scissors</h1>
+        <p style="color: #457b9d">First to reach the score of 5 wins lol!</p>
+        <div class="scoreboard">
+            <p>
+                Computer : <span id="computer">0</span> You :
+                <span id="player">0</span>
+            </p>
+        </div>
+        <br />
+        <div class="main">
+            <button id="0"><img src="img/rock.png" alt="Rock" /></button>
+            <button id="1"><img src="img/paper.png" alt="Paper" /></button>
+            <button id="2">
+                <img src="img/scissors.png" alt="Scissors" />
+            </button>
+            <p class="display"></p>
+        </div>
+    </body>
 </html>
