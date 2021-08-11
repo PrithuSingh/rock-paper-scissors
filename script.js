@@ -1,7 +1,7 @@
 console.log("Hello World!");
 
 let scorePlayer=0, scoreComputer=0;
-let cntRound=0;
+let gameState=0; // 0=No winner, 1=Someone Won
 
 const buttons = document.querySelectorAll("button");
 console.log(buttons);
@@ -10,6 +10,13 @@ console.log(scoreboard);
 const computer = document.querySelector("#computer");
 const player = document.querySelector("#player");
 const display = document.querySelector(".display");
+const main = document.querySelector(".main");
+const reset = document.createElement("button");
+reset.setAttribute("id", "reset");
+reset.style.cssText = 'color: #e63946; background-color: #a8dadc; margin-top: 1em;';
+reset.textContent = "RESET";
+main.appendChild(reset);
+document.getElementById("reset").disabled = true;
 
 function computerPlay()
 {
@@ -40,6 +47,7 @@ function play(player, computer)
 
 function game(id) 
 {
+    if(gameState === 1) return;
     let choices = ['rock', 'paper', 'scissors'];  
     let playerChoice = choices[parseInt(id)];
     let computerChoice = computerPlay();
@@ -54,8 +62,8 @@ function game(id)
         computer.textContent = scoreComputer;
     }
     display.textContent = `Computer chose ${computerChoice} and you chose ${playerChoice}.`;
-    cntRound++;
-    if(cntRound === 5) {
+    if(scorePlayer === 5 || scoreComputer === 5) {
+        gameState = 1;
         const result = document.createElement('div');
         if(scorePlayer === 5) {
             result.textContent = "Congrats! You won the game";
@@ -66,9 +74,27 @@ function game(id)
         else {
             result.textContent = "It's a draw!";
         }
+        document.getElementById("reset").disabled = false;
+        result.setAttribute("id", "result");
         scoreboard.appendChild(result);
     }
 }
+
+function resetGame() {
+    scorePlayer = 0;
+    scoreComputer = 0;
+    gameState = 0;
+    player.textContent = scorePlayer;
+    computer.textContent = scoreComputer;
+    let garbage = scoreboard.removeChild(document.getElementById("result"));
+    display.textContent = "";
+    document.getElementById("reset").disabled = true;
+}
+
+const btn = document.querySelector("#reset");
+btn.addEventListener('click', () => {
+    resetGame();
+});
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
