@@ -20,6 +20,7 @@ h1 {
     padding: 2em;
     margin: 2em;
     border: solid 2px #e63946;
+    border-radius: 40%;
     background-color: #457b9d;
     color: #f1faee;
 }
@@ -27,13 +28,27 @@ h1 {
 .main {
     display: inline-block;
     margin-top: 1em;
-    border: solid 1px #457b9d;
+    border: solid 2px #457b9d;
+    border-radius: 1rem;
     padding: 1em;
 }
 
 .display {
     margin-top: 2em;
     background-color: #a8dadc;
+}
+
+button {
+    border-radius: 8%;
+    font-size: 600;
+    font-weight: bold;
+    background-color: #f1faee;
+    transition: all .5s ease;
+}
+
+button:hover {
+    background-color: #457b9d;
+    box-shadow: 0 0 3px #1d3557;
 }
 
 @media (max-width: 660px) {
